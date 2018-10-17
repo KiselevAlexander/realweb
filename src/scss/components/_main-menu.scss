@@ -1,0 +1,56 @@
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: $color-dark-grey;
+    color: #fff;
+    height: $menu-height;
+
+    .container,
+    .row,
+    [class^=col] {
+        height: 100%;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    &-logo {
+        float: left;
+        height: 100%;
+
+        a {
+            height: 100%;
+            @include flex;
+        }
+    }
+
+    nav {
+        display: inline-block;
+        height: 100%;
+    }
+
+    ul {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            float: left;
+            height: 100%;
+            padding-left: 1.875em;
+            padding-right: 1.875em;
+            @include flex;
+        }
+    }
+
+    &-invite-link {
+        float: right;
+        height: 100%;
+        @include flex;
+    }
+}
