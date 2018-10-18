@@ -1,14 +1,17 @@
 import $ from '../../node_modules/jquery';
 
 $(() => {
+    const MENU_IS_ACTIVE_CLASS = '-active';
+
     const $MENU = $('.main-menu');
     const $HAMBURGER = $('.hamburger');
     const $MOUSEDOWN = $('.mouse-down');
     const $SCROLLTOTOP = $('.scroll-to-top');
 
+
     $HAMBURGER.click((e) => {
         e.preventDefault();
-        $MENU.toggleClass('-active');
+        $MENU.toggleClass(MENU_IS_ACTIVE_CLASS);
         $HAMBURGER.toggleClass('is-active')
     });
 
@@ -30,8 +33,10 @@ $(() => {
 
     $MENU.find('.scroll-to-top, a').click((e) => {
         e.preventDefault();
-        $MENU.toggleClass('-active');
-        $HAMBURGER.toggleClass('is-active');
+        if ($MENU.hasClass(MENU_IS_ACTIVE_CLASS)) {
+            $MENU.toggleClass(MENU_IS_ACTIVE_CLASS);
+            $HAMBURGER.toggleClass('is-active');
+        }
 
     })
 });

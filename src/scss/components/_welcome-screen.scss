@@ -8,6 +8,10 @@
     text-align: center;
     @include flex;
 
+    &-image {
+        max-width: 100%;
+    }
+
     .mouse-down {
         position: absolute;
         left: 50%;
