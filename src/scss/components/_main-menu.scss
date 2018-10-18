@@ -1,3 +1,12 @@
+
+$hamburger-types: (spring, spring-r);
+$hamburger-layer-color: #fff;
+$hamburger-layer-width: 32px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 8px;
+@import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
+
 .main-menu {
     position: fixed;
     top: 0;
@@ -18,8 +27,22 @@
         color: #fff;
     }
 
-    &-logo {
+    &-inner {
+        position: relative;
         float: left;
+        height: 100%;
+        background-color: $color-dark-grey;
+    }
+
+    .hamburger {
+        display: none;
+        outline: 0;
+        position: absolute;
+        left: 0;
+        width: $menu-height;
+    }
+
+    &-logo {
         height: 100%;
 
         a {
@@ -28,7 +51,7 @@
         }
     }
 
-    nav {
+    &-navigation {
         display: inline-block;
         height: 100%;
     }
@@ -52,5 +75,96 @@
         float: right;
         height: 100%;
         @include flex;
+    }
+
+    @include media-breakpoint-down('sm') {
+        display: block;
+        text-align: center;
+        background-color: transparent;
+
+        .container,
+        .row,
+        [class^=col] {
+            margin: 0;
+            padding: 0;
+            width: auto;
+            max-width: 100%;
+        }
+
+        &-inner {
+            position: relative;
+            z-index: 3;
+            float: none;
+            height: $menu-height;
+        }
+
+        .hamburger {
+            @include flex;
+            height: 100%;
+        }
+
+        &-logo {
+            height: 100%;
+
+            a {
+                height: 100%;
+                @include flex;
+                display: inline-flex;
+            }
+        }
+
+        &-navigation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: calc(100vh);
+            background-color: #000;
+            transform: translateY(-100%);
+            transition: transform .4s;
+
+            ul {
+                @include flex;
+                flex-direction: column;
+
+                li {
+                    display: block;
+                    float: none;
+                    height: auto;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+            }
+
+            .-active & {
+                transform: translateY(0);
+            }
+        }
+
+        &-invite-link {
+            float: none;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 4;
+            width: 100%;
+            height: $menu-height;
+            border-top: 2px solid #282828;
+            background-color: #000;
+            @include flex;
+            visibility: hidden;
+            opacity: 0;
+
+            .-active & {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity .4s .4s;
+            }
+        }
+
+        &.-active {
+            height: 100%;
+        }
     }
 }

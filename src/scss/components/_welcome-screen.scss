@@ -1,8 +1,18 @@
 .welcome-screen {
+    position: relative;
     height: 100vh;
     background-color: #000;
     color: #fff;
     box-sizing: border-box;
     padding-top: $menu-height;
     text-align: center;
+    @include flex;
+
+    .mouse-down {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
 }

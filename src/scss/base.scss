@@ -1,6 +1,12 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+$font-family-base: 'Roboto';
 
 @import "variables";
 @import "mixins";
+@import "fonts";
 @import "components/main-menu";
 @import "components/welcome-screen";
+@import "components/chronology";
+@import "components/program";
+@import "components/partners";
+@import "components/footer";
