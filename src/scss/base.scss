@@ -7,6 +7,20 @@ $font-family-base: 'Roboto';
 @import "components/main-menu";
 @import "components/welcome-screen";
 @import "components/chronology";
+@import "components/speakers";
+@import "components/auction";
 @import "components/program";
 @import "components/partners";
 @import "components/footer";
+
+@import "components/button";
+@import "components/add-wrapper";
+
+body {
+    color: #000;
+}
+
+h1, h2, h3 {
+    font-family: "Roboto-slab";
+    text-align: center;
+}

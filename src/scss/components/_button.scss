@@ -1,3 +1,98 @@
 .button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    @include flex;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 1;
+    height: $em40;
+    padding-left: $em56;
+    outline: 0 !important;
+    font-family: 'Roboto-slab', Roboto, sans-serif;
+    padding-right: 0;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: $em13;
 
+    &.-big {
+        font-size: $em16;
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        content: '';
+        width: $em40;
+        height: $em40;
+        transition: opacity .4s;
+    }
+
+    &:after {
+        opacity: 0;
+    }
+
+    &:hover {
+        &:before {
+            opacity: 0;
+        }
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    &.-add {
+        &:before {
+            background-image: url('/img/add_btn.svg');
+        }
+        &:after {
+            background-image: url('/img/add_btn_hover.svg');
+        }
+    }
+
+    &.-video {
+        &:before {
+            background-image: url('/img/video_btn.svg');
+            background-position: 0 -2px;
+        }
+        &:after {
+            background-image: url('/img/video_btn_hover.svg');
+            background-position: 0 -2px;
+        }
+    }
+
+    &.-info {
+        &:before {
+            background-image: url('/img/story_btn.svg');
+        }
+        &:after {
+            background-image: url('/img/story_btn_hover.svg');
+        }
+    }
+
+    &.-send {
+        &:before {
+            background-image: url('/img/send_blk_btn.svg');
+        }
+        &:after {
+            background-image: url('/img/send_blk_btn_hover.svg');
+        }
+        &.-white {
+            color: #fff;
+
+            &:before {
+                background-image: url('/img/send_wht_btn.svg');
+            }
+            &:after {
+                background-image: url('/img/send_wht_btn_hover.svg');
+            }
+        }
+    }
 }

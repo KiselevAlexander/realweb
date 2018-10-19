@@ -1,3 +1,15 @@
 .program {
     background-color: #000;
+    color: #fff;
+    background-image: url('/img/X_event.png');
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    &-container {
+
+    }
 }

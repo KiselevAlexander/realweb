@@ -1,0 +1,34 @@
+.auction {
+    counter-reset: section;
+
+    .lot {
+        margin: $em36 0;
+
+        &:before {
+            display: block;
+            counter-increment: section;
+            content:  counter(section, decimal-leading-zero);
+            text-align: center;
+            font-family: 'Roboto-slab-bold', Roboto, sans-serif;
+            font-size: $em56;
+            font-weight: bold;
+            color: #000;
+        }
+
+        &-image {
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &-description {
+            font-size: $em13;
+        }
+
+        &-controls {
+            margin-top: 1em;
+        }
+
+    }
+
+}

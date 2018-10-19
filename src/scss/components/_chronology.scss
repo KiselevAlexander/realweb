@@ -2,6 +2,10 @@
     background-color: #000;
     color: #fff;
     padding-bottom: $em70;
+    
+    h1 {
+        text-align: left;
+    }
 
     &-image {
         img {

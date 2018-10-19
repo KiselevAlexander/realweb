@@ -1,0 +1,37 @@
+.speakers {
+
+    .speaker {
+        text-align: center;
+
+        &-image {
+            position: relative;
+
+            &-photo {
+                position: absolute;
+                z-index: 2;
+            }
+
+            &-hover {
+                position: relative;
+                opacity: 0;
+                transition: opacity .4s;
+                z-index: 1;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &-name {
+
+        }
+
+        &:hover {
+            .speaker-image-hover {
+                opacity: 1;
+            }
+        }
+    }
+
+}
