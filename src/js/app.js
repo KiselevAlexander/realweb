@@ -1,5 +1,7 @@
 import $ from '../../node_modules/jquery';
 
+import tingle from "../../node_modules/tingle.js"
+
 const MENU_IS_ACTIVE_CLASS = '-active';
 
 const $MENU = $('.main-menu');
@@ -8,6 +10,62 @@ const $HAMBURGER = $('.hamburger');
 const $MOUSEDOWN = $('.mouse-down');
 const $SCROLLTOTOP = $('.scroll-to-top');
 
+/**
+ * Modals
+ */
+const MODAL = new tingle.modal({
+    footer: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    cssClass: ['-modal'],
+    closeLabel: '',
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+        return false; // nothing happens
+    }
+});
+
+const $MODAL_INNER = $('<div class="-modal-inner"></div>');
+const $MODAL_BOX_CONTENT = $('.tingle-modal-box__content');
+
+$MODAL_BOX_CONTENT.append($('<button class="-modal-close"></button>'));
+$MODAL_BOX_CONTENT.append($MODAL_INNER);
+$MODAL_BOX_CONTENT.append($('<button class="-modal-close -footer"></button>'));
+
+
+const openModal = (target) => {
+    $MODAL_INNER.html(target.html());
+    MODAL.open();
+};
+
+$('.-modal-close').click(() => {
+    MODAL.close();
+})
+
+$('a').click((e) => {
+    const {target} = e;
+    const {hash} = target;
+
+    if (hash && hash.startsWith('#open-')) {
+        e.preventDefault();
+
+        const $target = $(`#${hash.substr(6)}`);
+        openModal($target);
+    }
+
+});
+
+
+/**
+ * / Modals
+ */
 
 $HAMBURGER.click((e) => {
     e.preventDefault();
@@ -46,6 +104,11 @@ $MENU.find('.scroll-to-top, a').click((e) => {
         $('html').stop().animate({
             scrollTop: $target.offset().top - MENU_HEIGHT
         }, 400);
+    }
+
+    if (hash && hash.startsWith('#open-')) {
+        const $target = $(`#${hash.substr(6)}`);
+        openModal($target);
     }
 
 });

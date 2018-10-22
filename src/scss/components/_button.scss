@@ -17,6 +17,7 @@
     text-align: left;
     font-size: $rem11;
     letter-spacing: 0.15em;
+    color: #000;
 
     &:before,
     &:after {
@@ -37,6 +38,9 @@
     }
 
     &:hover {
+        text-decoration: none;
+        color: #000;
+
         &:before {
             opacity: 0;
         }

@@ -54,6 +54,9 @@ $hamburger-layer-spacing: 8px;
     &-navigation {
         display: inline-block;
         height: 100%;
+        @include media-breakpoint-down('md') {
+            font-size: $em12;
+        }
     }
 
     ul {
@@ -75,6 +78,9 @@ $hamburger-layer-spacing: 8px;
         float: right;
         height: 100%;
         @include flex;
+        @include media-breakpoint-down('md') {
+            font-size: $em12;
+        }
     }
 
     @include media-breakpoint-down('sm') {

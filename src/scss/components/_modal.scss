@@ -1,0 +1,109 @@
+.-modal {
+    background: rgba(0,0,0,.6);
+
+    @include media-breakpoint-down('sm') {
+        height: 100%;
+        overflow-y: scroll;
+        padding-top: 8vh;
+    }
+
+    &-contents {
+        position: fixed;
+        z-index: -1;
+        opacity: 0;
+        left: 9999px;
+        top: 9999px;
+    }
+
+    & > .tingle-modal__close {
+        display: none;
+    }
+
+    &-close {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background-color: transparent;
+        border: none;
+        width: 2em;
+        height: 1.688em;
+        margin-top: -2.875em;
+        margin-left: -1.625em;
+        transition: opacity .4s;
+        cursor: pointer;
+        outline: 0 !important;
+
+        &:hover {
+            opacity: .5;
+        }
+
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            left: .875em;
+            content: ' ';
+            height: 1.75em;
+            width: .125em;
+            background-color: #fff;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+        &.-footer {
+            display: none;
+        }
+
+        @include media-breakpoint-down('sm') {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            margin: 1em auto;
+
+            &:before,
+            &:after {
+                background-color: #000;
+            }
+
+            &.-footer {
+                display: block;
+            }
+
+        }
+    }
+
+    &-inner {
+        padding: 2em 1em;
+
+        @include media-breakpoint-down('sm') {
+            padding: 0 1em;
+            flex: 1;
+        }
+    }
+
+    .tingle-modal-box {
+        border-radius: 0;
+
+        @include media-breakpoint-down('sm') {
+            height: 100%;
+            width: 100%;
+        }
+
+        &__content {
+            position: relative;
+            padding: 0;
+
+            @include media-breakpoint-down('sm') {
+                height: 100%;
+            }
+        }
+
+    }
+}

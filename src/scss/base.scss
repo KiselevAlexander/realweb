@@ -1,4 +1,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/tingle.js/dist/tingle.css";
+
 $font-family-base: 'Roboto';
 
 @import "variables";
@@ -15,6 +17,8 @@ $font-family-base: 'Roboto';
 
 @import "components/button";
 @import "components/add-wrapper";
+@import "components/modal";
+@import "components/input";
 
 body {
     color: #000;
