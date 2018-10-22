@@ -15,11 +15,8 @@
     padding-right: 0;
     text-transform: uppercase;
     text-align: left;
-    font-size: $em13;
-
-    &.-big {
-        font-size: $em16;
-    }
+    font-size: $rem11;
+    letter-spacing: 0.15em;
 
     &:before,
     &:after {
@@ -30,8 +27,8 @@
         background-size: cover;
         display: block;
         content: '';
-        width: $em40;
-        height: $em40;
+        width: $em46;
+        height: $em46;
         transition: opacity .4s;
     }
 
@@ -93,6 +90,24 @@
             &:after {
                 background-image: url('/img/send_wht_btn_hover.svg');
             }
+        }
+    }
+
+    &.-big {
+        padding-left: $em86;
+
+        &:before,
+        &:after {
+            position: absolute;
+            left: 0;
+            top: -.5em;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            content: '';
+            width: $em60;
+            height: $em60;
+            transition: opacity .4s;
         }
     }
 }

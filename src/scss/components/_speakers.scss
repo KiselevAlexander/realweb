@@ -1,7 +1,13 @@
 .speakers {
 
+    h1 {
+        margin-top: $rem56;
+        margin-bottom: $rem56;
+    }
+
     .speaker {
         text-align: center;
+        margin-bottom: $rem56;
 
         &-image {
             position: relative;
@@ -24,7 +30,17 @@
         }
 
         &-name {
+            font-size: $em24;
+            margin-top: $rem24;
+        }
 
+        &-position {
+            font-size: $em13;
+            margin-top: $em8;
+        }
+
+        &-controls {
+            margin-top: $em20;
         }
 
         &:hover {

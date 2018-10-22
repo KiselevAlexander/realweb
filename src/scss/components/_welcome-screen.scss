@@ -9,7 +9,19 @@
     @include flex;
 
     &-image {
-        max-width: 100%;
+        max-width: 26.875em;
+        margin-top: 53px;
+        @include media-breakpoint-down('sm') {
+            max-width: 90%;
+        }
+    }
+
+    &-company-name {
+        font-size: $em48;
+        text-transform: uppercase;
+        font-family: "Roboto-slab";
+        letter-spacing: 0.1em;
+        margin-top: 9px;
     }
 
     .mouse-down {

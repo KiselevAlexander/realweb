@@ -24,3 +24,14 @@ h1, h2, h3 {
     font-family: "Roboto-slab";
     text-align: center;
 }
+
+h1 {
+    font-size: $rem24;
+    letter-spacing: -.04em;
+}
+
+.mt {
+    &16 {
+        margin-top: $em16;
+    }
+}

@@ -1,5 +1,10 @@
 .auction {
     counter-reset: section;
+    padding-bottom: $em56;
+
+    h1 {
+        margin-top: $rem86;
+    }
 
     .lot {
         margin: $em36 0;
