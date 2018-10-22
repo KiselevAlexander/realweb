@@ -1,8 +1,17 @@
 .input-field {
+    margin-bottom: 1em;
+
+    label {
+        width: 100%;
+    }
+
     input {
         display: block;
+        width: 100%;
         border: none;
         outline: 0 !important;
         border-bottom: 1px solid #ccc;
+        height: 3em;
     }
+
 }
