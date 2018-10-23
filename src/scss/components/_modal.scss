@@ -92,7 +92,7 @@
         border-radius: 0;
 
         @include media-breakpoint-down('sm') {
-            height: 100%;
+            height: auto;
             width: 100%;
         }
 
@@ -120,7 +120,48 @@
     .video-player {
         margin-top: -1em;
         margin-bottom: -1em;
-        min-height: 480px;
+        height: 480px;
         background-color: #000;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        @include media-breakpoint-down('sm') {
+            height: 450px;
+            margin: 3em 0;
+        }
+
+        @include media-breakpoint-down('xs') {
+            height: 350px;
+            margin: 2em 0;
+        }
+    }
+
+    .lot-modal {
+
+        &-image {
+            width: 100%;
+            text-align: center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &-name {
+            text-align: left;
+        }
+
+        &-description {
+            font-size: $em14;
+            margin-bottom: 1em;
+        }
+
+        &-text {
+            font-size: $em14;
+        }
+
     }
 }

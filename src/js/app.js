@@ -26,6 +26,7 @@ const MODAL = new tingle.modal({
     onClose: function() {
         $('.-modal-inner').html('');
         $('.-modal-inner').html('');
+        $('.-modal-close.-footer').removeClass('-hidden');
     },
     beforeClose: function() {
         // here's goes some logic
@@ -50,7 +51,7 @@ const openModal = (target) => {
 
 $('.-modal-close').click(() => {
     MODAL.close();
-})
+});
 
 $('a').click((e) => {
     const {target} = e;
@@ -76,9 +77,38 @@ $('.open-video').click((e) => {
     if (!_videoLink) {
         console.error('Attr [data-video] is required');
     }
-    const frame = `<iframe width="100%" height="480" src="${_videoLink}?autoplay=1&rel=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    const frame = `<iframe src="${_videoLink}?autoplay=1&rel=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
     $VIDEO_MODAL.find('.video-player').html(frame);
+    $('.-modal-close.-footer').addClass('-hidden');
     openModal($VIDEO_MODAL);
+});
+
+
+$('.open-lot').click((e) => {
+    e.preventDefault();
+
+    const $LOT_MODAL = $('#lot');
+
+    const $this = $(e.target);
+    const _lotId = $this.data('lot');
+    if (!_lotId) {
+        console.error('Attr [data-lot] is required');
+    }
+
+    const lot = LOTS.find((i) => i.id === _lotId);
+
+    if (!lot) {
+        console.error(`Lot ${_lotId} is not defined`);
+        return;
+    }
+
+    $LOT_MODAL.find('.lot-modal-image').html(`<img src="${lot.image}" alt="${lot.name}" />`);
+    $LOT_MODAL.find('.lot-modal-name').html(lot.name);
+    $LOT_MODAL.find('.lot-modal-description').html(lot.description);
+    $LOT_MODAL.find('.lot-modal-text').html(lot.text);
+    console.log(lot);
+
+    openModal($LOT_MODAL);
 });
 
 /**
