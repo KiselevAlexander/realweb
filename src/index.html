@@ -125,7 +125,40 @@
                         <div class="speaker-controls">
                             <div class="row">
                                 <div class="col-6 p-0">
-                                    <button class="button -video">Смотреть видео</button>
+                                    <button class="button -video open-video"
+                                            data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                    >
+                                        Смотреть видео
+                                    </button>
+                                </div>
+                                <div class="col-6 p-0">
+                                    <button class="button -info">Перейти к лоту</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="speaker">
+                        <div class="speaker-image">
+                            <img class="speaker-image-photo" src="/img/speaker.png" alt="Антон Байцур">
+                            <img class="speaker-image-hover" src="/img/speaker_X.svg" alt="Антон Байцур">
+                        </div>
+                        <div class="speaker-name">
+                            Антон Байцур
+                        </div>
+                        <div class="speaker-position">
+                            VP Products в Aviasales
+                        </div>
+                        <div class="speaker-controls">
+                            <div class="row">
+                                <div class="col-6 p-0">
+                                    <button class="button -video open-video"
+                                            data-video="https://www.youtube.com/embed/gqaFbF8QRT0"
+                                    >
+                                        Смотреть видео
+                                    </button>
                                 </div>
                                 <div class="col-6 p-0">
                                     <button class="button -info">Перейти к лоту</button>
@@ -149,7 +182,11 @@
                         <div class="speaker-controls">
                             <div class="row">
                                 <div class="col-6 p-0">
-                                    <button class="button -video">Смотреть видео</button>
+                                    <button class="button -video open-video"
+                                            data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                    >
+                                        Смотреть видео
+                                    </button>
                                 </div>
                                 <div class="col-6 p-0">
                                     <button class="button -info">Перейти к лоту</button>
@@ -173,7 +210,11 @@
                         <div class="speaker-controls">
                             <div class="row">
                                 <div class="col-6 p-0">
-                                    <button class="button -video">Смотреть видео</button>
+                                    <button class="button -video open-video"
+                                            data-video="https://www.youtube.com/embed/gqaFbF8QRT0"
+                                    >
+                                        Смотреть видео
+                                    </button>
                                 </div>
                                 <div class="col-6 p-0">
                                     <button class="button -info">Перейти к лоту</button>
@@ -197,31 +238,11 @@
                         <div class="speaker-controls">
                             <div class="row">
                                 <div class="col-6 p-0">
-                                    <button class="button -video">Смотреть видео</button>
-                                </div>
-                                <div class="col-6 p-0">
-                                    <button class="button -info">Перейти к лоту</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                    <div class="speaker">
-                        <div class="speaker-image">
-                            <img class="speaker-image-photo" src="/img/speaker.png" alt="Антон Байцур">
-                            <img class="speaker-image-hover" src="/img/speaker_X.svg" alt="Антон Байцур">
-                        </div>
-                        <div class="speaker-name">
-                            Антон Байцур
-                        </div>
-                        <div class="speaker-position">
-                            VP Products в Aviasales
-                        </div>
-                        <div class="speaker-controls">
-                            <div class="row">
-                                <div class="col-6 p-0">
-                                    <button class="button -video">Смотреть видео</button>
+                                    <button class="button -video open-video"
+                                            data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                    >
+                                        Смотреть видео
+                                    </button>
                                 </div>
                                 <div class="col-6 p-0">
                                     <button class="button -info">Перейти к лоту</button>
@@ -569,63 +590,78 @@
 
     <div class="-modal-contents">
         <div id="invite">
-            <h1>Предложить свой лот</h1>
-            <p>
-                У вас есть интересные артефакты,
-                которые связаны с историей Рунета?
-                Опишите свой лот и оставьте контаткы –
-                мы обязательно свяжемся с вами и
-                обсудим внесение артефакта в список
-                лотов
-            </p>
+            <div class="offer-lot">
+                <h1>Предложить свой лот</h1>
+                <p>
+                    У вас есть интересные артефакты,
+                    которые связаны с историей Рунета?
+                    Опишите свой лот и оставьте контаткы –
+                    мы обязательно свяжемся с вами и
+                    обсудим внесение артефакта в список
+                    лотов
+                </p>
 
-            <form action="">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="Имя и фамилия">
-                            </label>
+                <form>
+                    <input type="hidden" name="type" value="offer_lot">
+                    <div class="row mt16">
+                        <div class="col-12 col-sm-6">
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="Имя и фамилия"
+                                       data-required="true"
+                                       name="name"
+                                />
+                            </div>
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="Компания"
+                                       data-required="true"
+                                       name="company"
+                                />
+                            </div>
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="+7 ХХХ ХХХ ХХ ХХ"
+                                       data-required="true"
+                                       name="phone"
+                                />
+                            </div>
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="Email"
+                                       data-required="true"
+                                       name="email"
+                                />
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="Компания">
-                            </label>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="Название лота"
+                                       data-required="true"
+                                       name="lot"
+                                />
+                            </div>
+                            <div class="input-field">
+                                <input type="text"
+                                       placeholder="Краткая история о лоте"
+                                       name="logInfo"
+                                />
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="+7 ХХХ ХХХ ХХ ХХ">
-                            </label>
-                        </div>
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="Email">
-                            </label>
+                        <div class="col-12 mt16">
+                            <div class="input-field">
+                                <button type="submit" class="button -send -big">
+                                    ПРЕДЛОЖИТЬ ЛОТ
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="Название лота">
-                            </label>
-                        </div>
-                        <div class="input-field">
-                            <label for="">
-                                <input type="text" placeholder="Краткая история о лоте">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="input-field">
-                            <button class="button -send -big">ПРЕДЛОЖИТЬ ЛОТ</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="/js/vendors.bundle.js"></script>
     <script src="/js/script.bundle.js"></script>
 </body>
 </html>

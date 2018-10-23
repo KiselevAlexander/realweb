@@ -2,6 +2,8 @@ import $ from '../../node_modules/jquery';
 
 import tingle from "../../node_modules/tingle.js"
 
+const FORMS_URL_API = '/forms.php';
+
 const MENU_IS_ACTIVE_CLASS = '-active';
 
 const $MENU = $('.main-menu');
@@ -22,7 +24,8 @@ const MODAL = new tingle.modal({
         console.log('modal open');
     },
     onClose: function() {
-        console.log('modal closed');
+        $('.-modal-inner').html('');
+        $('.-modal-inner').html('');
     },
     beforeClose: function() {
         // here's goes some logic
@@ -62,6 +65,21 @@ $('a').click((e) => {
 
 });
 
+$('.open-video').click((e) => {
+    e.preventDefault();
+
+    const $VIDEO_MODAL = $('<div id="video"></div>');
+    $VIDEO_MODAL.append('<div class="video-player"></div>');
+
+    const $this = $(e.target);
+    const _videoLink = $this.data('video');
+    if (!_videoLink) {
+        console.error('Attr [data-video] is required');
+    }
+    const frame = `<iframe width="100%" height="480" src="${_videoLink}?autoplay=1&rel=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    $VIDEO_MODAL.find('.video-player').html(frame);
+    openModal($VIDEO_MODAL);
+});
 
 /**
  * / Modals
@@ -111,4 +129,48 @@ $MENU.find('.scroll-to-top, a').click((e) => {
         openModal($target);
     }
 
+});
+
+
+/**
+ * Forms
+ */
+
+$(document).on('submit', 'form', (e) => {
+    e.preventDefault();
+    const $form = $(e.target);
+    const $fields = $form.find('input');
+    const $buttons = $form.find('button');
+    const _errors = [];
+
+    $fields.each((i, field) => {
+        const $field = $(field);
+        if ($field.data('required') && !$field.val()) {
+            $field.parent().addClass('-error');
+            _errors.push($field.attr('name'))
+        }
+    });
+
+    if (!_errors.length) {
+        $fields.attr('disabled', true);
+        $buttons.attr('disabled', true);
+        $.ajax({
+            url: FORMS_URL_API,
+            type: 'post',
+            dataType: 'json',
+            success: (data) => {
+                $fields.removeAttr('disabled');
+                $buttons.removeAttr('disabled');
+                console.log(data);
+            },
+            error: () => {
+                $fields.removeAttr('disabled');
+                $buttons.removeAttr('disabled');
+            }
+        })
+    }
+});
+$(document).on('keydown', 'input', (e) => {
+    const $input = $(e.target);
+    $input.parent().removeClass('-error');
 });

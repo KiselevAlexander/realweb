@@ -6,12 +6,29 @@
     }
 
     input {
+        position: relative;
         display: block;
         width: 100%;
         border: none;
         outline: 0 !important;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #ebebeb;
         height: 3em;
+        transition: border .4s;
+
+        &::placeholder {
+            color: #9b9b9b;
+            transition: color .4s, opacity .4s;
+        }
+    }
+
+    &.-error {
+        input {
+            border-bottom: 1px solid #f00;
+            &::placeholder {
+                color: #f00;
+                opacity: .7;
+            }
+        }
     }
 
 }

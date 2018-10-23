@@ -106,4 +106,21 @@
         }
 
     }
+
+
+    // Modals
+    .offer-lot {
+        margin: 0 2em;
+
+        @include media-breakpoint-down('sm') {
+            margin: 0;
+        }
+    }
+
+    .video-player {
+        margin-top: -1em;
+        margin-bottom: -1em;
+        min-height: 480px;
+        background-color: #000;
+    }
 }
