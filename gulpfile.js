@@ -117,22 +117,56 @@ gulp.task('pages:build', function () {
 /**
  * JAVASCRIPT
  */
-const libs = [
-    'core-js/shim',
-    'url',
-];
 
+const fs = require('fs');
+const babelify = require('babelify');
+const envify = require('envify/custom');
+const babelrc = JSON.parse(fs.readFileSync('./.babelrc', 'utf8'));
+const babelifyPresets = babelify.configure(babelrc);
 const browserify = require('browserify');
 const rename = require('gulp-rename');
 const buffer = require('gulp-buffer');
 const streamify = require('gulp-streamify');
 const source = require('vinyl-source-stream');
 
+const buildAppTask = (dest) => () => {
+    const b = browserify('src/js/app.js', {
+        transform: [babelifyPresets],
+        bundleExternal: false
+    }).transform(envify({
+        NODE_ENV: process.env.NODE_ENV || 'development',
+        DEBUG: false
+    }), {
+        global: true
+    });
 
+    let stream = b.bundle()
+        .on('error', console.error.bind(console))
+        .pipe(source('script.js'))
+        .pipe(rename({
+            suffix: '.bundle'
+        }))
+        .pipe(reload({stream: true}));
 
+    if (process.env.NODE_ENV === 'production') {
+        stream = stream.pipe(streamify(uglify()));
+    }
 
-gulp.task('vendors', () => {
-    const vendor = 'vendors.js';
+    stream.pipe(gulp.dest(dest))
+        .on('error', (e) => console.error(e));
+
+    return stream;
+};
+
+gulp.task('js:build', buildAppTask('public/js/'));
+
+const libs = [
+    'jquery',
+    'tingle.js'
+];
+
+const vendorTask = (dest) => () => {
+    const vendor = 'vendor.js';
     const b = browserify();
 
     libs.forEach((lib) => {
@@ -141,48 +175,26 @@ gulp.task('vendors', () => {
         });
     });
 
-    return b.bundle()
+    let stream = b.bundle()
+        .on('error', console.error.bind(console))
         .pipe(source(vendor))
         .pipe(rename({
             suffix: '.bundle'
-        }))
-        .pipe(streamify(uglify()))
-        .pipe(buffer())
-        .pipe(gulp.dest(path.build.js))
+        }));
+
+    if (process.env.NODE_ENV === 'production') {
+        stream = stream.pipe(streamify(uglify()));
+    }
+
+    stream.pipe(gulp.dest(dest))
         .on('error', (e) => console.error(e));
-});
 
-const fs = require('fs');
-const babelify = require('babelify');
-const envify = require('envify/custom');
-const babelrc = JSON.parse(fs.readFileSync('./.babelrc', 'utf8'));
-const babelifyPresets = babelify.configure(babelrc);
+    return stream;
+};
+
+gulp.task('vendors', vendorTask('public/js/'));
 
 
-gulp.task('js:build', function () {
-    const b = browserify('./src/js/app.js', {
-        transform: [babelifyPresets],
-        bundleExternal: false
-    })
-        .transform(envify({
-            NODE_ENV: process.env.NODE_ENV || 'development',
-            DEBUG: false
-        }), {
-            global: true
-        });
-
-    return b.bundle()
-        .on('error', (e) => console.error('\x1b[31m', 'Bundle error: ', '\x1b[0m', e.message))
-        .pipe(source('script.js'))
-        .pipe(rename({
-            suffix: '.bundle'
-        }))
-        // .pipe(streamify(uglify()))
-        // .pipe(buffer())
-        .pipe(gulp.dest(path.build.js))
-        .on('error', (e) => console.error(e))
-        .pipe(reload({stream: true}));
-});
 
 gulp.task('style:build', function () {
     gulp.src(path.src.style)

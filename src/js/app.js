@@ -1,6 +1,9 @@
-import $ from '../../node_modules/jquery';
-
-import tingle from "../../node_modules/tingle.js"
+import $ from 'jquery';
+import tingle from "tingle.js"
+import Swiper from "../../node_modules/swiper"
+// var Swiper = require('swiper');
+// window.jQuery = window.$ = require("jquery");
+// require('../../node_modules/owl.carousel');
 
 const FORMS_URL_API = '/forms.php';
 
@@ -125,14 +128,14 @@ $MOUSEDOWN.click((e) => {
     e.preventDefault();
     const WH = window.innerHeight;
 
-    $('html').animate({
+    $('html, body').animate({
         scrollTop: `${WH - MENU_HEIGHT}px`
     }, 400);
 });
 
 $SCROLLTOTOP.click((e) => {
     e.preventDefault();
-    $('html').animate({
+    $('html, body').animate({
         scrollTop: 0
     }, 400);
 });
@@ -149,7 +152,7 @@ $MENU.find('.scroll-to-top, a').click((e) => {
 
     if (hash && hash.startsWith('#to-')) {
         const $target = $(`#${hash.substr(4)}`);
-        $('html').stop().animate({
+        $('html, body').stop().animate({
             scrollTop: $target.offset().top - MENU_HEIGHT
         }, 400);
     }
@@ -200,7 +203,58 @@ $(document).on('submit', 'form', (e) => {
         })
     }
 });
+
 $(document).on('keydown', 'input', (e) => {
     const $input = $(e.target);
     $input.parent().removeClass('-error');
 });
+
+let WINDOW_WIDTH = window.innerWidth;
+
+
+if (WINDOW_WIDTH > 575) {
+    /**
+     * / Forms
+     */
+    var mySwiper = new Swiper ('.swiper-container', {
+        slidesPerView: 5,
+        spaceBetween: 45,
+        loop: true,
+        centeredSlides: true,
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        breakpoints: {
+            // when window width is <= 480px
+            575: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            // when window width is <= 640px
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+            // when window width is <= 640px
+            998: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            }
+        }
+    });
+} else {
+    $('.partners .swiper-wrapper').removeClass('swiper-wrapper').addClass('row');
+    $('.partners .swiper-slide').removeClass('swiper-slide').addClass('col-6 partner');
+}

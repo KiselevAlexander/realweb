@@ -1,4 +1,49 @@
 .partners {
     background-color: #000;
     color: #fff;
+
+    .partner {
+        margin-bottom: 2em;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .swiper-container {
+        padding-left:40px;
+        padding-right:40px;
+        padding-bottom: 30px;
+
+        .swiper-wrapper {
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: absolute;
+            top: 22px;
+            background-image: url('/img/arrow.png') !important;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 19px;
+            height: 30px;
+            outline: 0;
+
+            @include media-breakpoint-down('md') {
+                display: none;
+            }
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        .swiper-button-next {
+            right: 0;
+            transform: rotateZ(180deg);
+        }
+
+        .swiper-scrollbar {
+            bottom: 0;
+        }
+    }
 }

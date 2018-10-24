@@ -1,7 +1,11 @@
 .chronology {
+    position: relative;
     background-color: #000;
     color: #fff;
     padding-bottom: $em70;
+    min-height: 100vh;
+    @include flex;
+
     
     h1 {
         text-align: left;

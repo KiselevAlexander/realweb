@@ -90,6 +90,7 @@
 
     .tingle-modal-box {
         border-radius: 0;
+        max-width: 48.75em;
 
         @include media-breakpoint-down('sm') {
             height: auto;
