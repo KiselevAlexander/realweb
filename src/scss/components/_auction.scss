@@ -18,20 +18,54 @@
             font-size: $em56;
             font-weight: bold;
             color: #000;
+            @include media-breakpoint-down('md') {
+                display: none;
+            }
         }
 
         &-image {
             img {
                 max-width: 100%;
             }
+
+            @include media-breakpoint-down('md') {
+                text-align: center;
+
+                img {
+                    max-width: 60%;
+                }
+
+            }
+
         }
 
         &-description {
             font-size: $em13;
+
+            &:before {
+                display: block;
+                counter-increment: section;
+                content:  counter(section, decimal-leading-zero);
+                font-family: 'Roboto-slab-bold', Roboto, sans-serif;
+                font-size: $rem56;
+                font-weight: bold;
+                color: #000;
+
+                @include media-breakpoint-up('md') {
+                    display: none;
+                }
+
+            }
+
         }
 
         &-controls {
             margin-top: 1em;
+
+            @include media-breakpoint-down('md') {
+                text-align: center;
+            }
+
         }
 
     }

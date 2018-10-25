@@ -11,6 +11,7 @@ const MENU_IS_ACTIVE_CLASS = '-active';
 
 const $MENU = $('.main-menu');
 const MENU_HEIGHT = 56;
+const MOBILE_BREAKPOINT = 768;
 const $HAMBURGER = $('.hamburger');
 const $MOUSEDOWN = $('.mouse-down');
 const $SCROLLTOTOP = $('.scroll-to-top');
@@ -212,7 +213,7 @@ $(document).on('keydown', 'input', (e) => {
 let WINDOW_WIDTH = window.innerWidth;
 
 
-if (WINDOW_WIDTH > 575) {
+if (WINDOW_WIDTH > MOBILE_BREAKPOINT) {
     /**
      * / Forms
      */
@@ -257,4 +258,39 @@ if (WINDOW_WIDTH > 575) {
 } else {
     $('.partners .swiper-wrapper').removeClass('swiper-wrapper').addClass('row');
     $('.partners .swiper-slide').removeClass('swiper-slide').addClass('col-6 partner');
+}
+
+const CLASSES_MAP = {
+    'm-slider': 'swiper-container',
+    'm-slider-wrapper': 'swiper-wrapper',
+    'm-slider-item': 'swiper-slide',
+};
+
+if (WINDOW_WIDTH < MOBILE_BREAKPOINT) {
+    Object.keys(CLASSES_MAP).map((key) => {
+        $(`.${key}`).each((i, item) => {
+            const $this = $(item);
+            const classes = $this.attr('class');
+            $this.data('originClasses', classes);
+            $this.attr('class', CLASSES_MAP[key]);
+
+            const mobileSliderClass = $this.data('mobile-slider');
+            if (mobileSliderClass) {
+                $this.addClass(mobileSliderClass);
+                $this.addClass('mobile-slider');
+                $this.append('<div class="swiper-scrollbar"/>');
+            }
+        });
+    });
+
+    new Swiper ('.mobile-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        centeredSlides: true,
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        }
+    });
+
 }

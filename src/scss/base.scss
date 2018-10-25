@@ -1,12 +1,17 @@
+
+@import "variables";
+@import "mixins";
+@import "fonts";
+
+$font-family-sans-serif: "Roboto";
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/utilities/spacing";
 @import "../../node_modules/tingle.js/dist/tingle.css";
 @import '../../node_modules/swiper/dist/css/swiper.css';
 
 $font-family-base: 'Roboto';
 
-@import "variables";
-@import "mixins";
-@import "fonts";
 @import "components/main-menu";
 @import "components/welcome-screen";
 @import "components/chronology";
@@ -28,6 +33,7 @@ body {
 h1, h2, h3 {
     font-family: "Roboto-slab";
     text-align: center;
+    font-weight: normal;
 }
 
 h1 {
@@ -44,6 +50,9 @@ h1 {
     }
     &32 {
         margin-top: $em32;
+    }
+    &48 {
+        margin-top: $em48;
     }
 }
 
