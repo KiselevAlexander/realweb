@@ -22,6 +22,12 @@
         font-family: "Roboto-slab";
         letter-spacing: 0.1em;
         margin-top: 9px;
+
+        @include media-breakpoint-down('sm') {
+            font-size: 9vw;
+            margin-bottom: 1em;
+            margin-top: .5em;
+        }
     }
 
     .mouse-down {
@@ -30,5 +36,11 @@
         bottom: 5%;
         transform: translateX(-50%);
         cursor: pointer;
+
+        @include media-breakpoint-down('sm') {
+            position: relative;
+            bottom: 0;
+            margin-top: 3em;
+        }
     }
 }

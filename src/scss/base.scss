@@ -26,6 +26,7 @@ $font-family-base: 'Roboto';
 @import "components/modal";
 @import "components/input";
 @import "components/swiper-slider";
+@import "components/preloader";
 
 body {
     color: #000;
@@ -59,4 +60,32 @@ h1 {
 
 .-hidden {
     display: none !important;
+}
+
+.hidden-for- {
+    &sm- {
+        &up {
+            @include media-breakpoint-up('sm') {
+                display: none !important;
+            }
+        }
+        &down {
+            @include media-breakpoint-down('sm') {
+                display: none !important;
+            }
+        }
+    }
+    &md- {
+        &up {
+            @include media-breakpoint-up('md') {
+                display: none !important;
+            }
+        }
+        &down {
+            @include media-breakpoint-down('md') {
+                display: none !important;
+            }
+        }
+    }
+
 }

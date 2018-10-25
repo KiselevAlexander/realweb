@@ -3,9 +3,13 @@
     font-size: $em13;
     background-color: #000;
     color: #fff;
+    padding-top: 4.375em;
+    padding-bottom: 4.375em;
 
     @include media-breakpoint-down('sm') {
         text-align: center;
+        padding-top: 1em;
+        padding-bottom: 4em;
     }
 
     h1 {
@@ -39,6 +43,7 @@
             bottom: auto;
             width: 100%;
             background-position: 50% 50%;
+            background-size: auto 70%;
 
             &:before {
                 content: '';
@@ -53,7 +58,6 @@
 
     &-container {
         position: relative;
-
         padding-top: 9.375em;
         padding-bottom: 9.375em;
 

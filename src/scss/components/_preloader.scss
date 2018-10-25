@@ -1,0 +1,7 @@
+.preloader {
+    transition: opacity .4s;
+
+    &.-loaded {
+        opacity: 0;
+    }
+}

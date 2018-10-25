@@ -83,10 +83,12 @@
     </script>
 </head>
 <body>
+    <div class="preloader" style="position: fixed;top: 0;left: 0;bottom: 0;right: 0;background-color: #000;z-index: 9999;"></div>
     <header class="main-menu">
         <div class="container">
             <div class="row">
                 <div class="col-12">
+
                     <div class="main-menu-inner">
 
                         <button class="hamburger hamburger--spring" type="button">
@@ -101,6 +103,7 @@
                             </a>
                         </div>
                     </div>
+
                     <nav class="main-menu-navigation">
                         <ul>
                             <li>
@@ -176,6 +179,109 @@
                 </div>
             </div>
         </div>
+
+        <div class="container chronology-mobile">
+            <div class="row">
+                <div class="col-12">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>1990</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>1993</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>1998</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2000</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2001</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2005</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2008</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2010</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2012</dt>
+                                </dl>
+                            </div>
+                            <div class="swiper-slide">
+                                <dl>
+                                    <dd>
+                                        Lorem ipsum dolor sit
+                                        amet, consectetur
+                                    </dd>
+                                    <dt>2018</dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section id="speakers" class="speakers">
@@ -338,15 +444,15 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 add-wrapper">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 add-wrapper hidden-for-sm-down">
                         <button class="button -add -big">Предложить историю</button>
                     </div>
 
                 </div>
             </div>
 
-            <div class="hidden-for-small-up text-center mt48">
-                <a href="#open-invite" class="button -add -big">Предложить лот</a>
+            <div class="hidden-for-md-up text-center mt48">
+                <a href="#open-invite" class="button -add -big">Предложить историю</a>
             </div>
         </div>
     </section>
@@ -621,14 +727,14 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-4 add-wrapper">
+                    <div class="col-12 col-md-6 col-lg-4 add-wrapper hidden-for-sm-down">
                         <a href="#open-invite" class="button -add -big">Предложить лот</a>
                     </div>
 
                 </div>
             </div>
 
-            <div class="hidden-for-small-up text-center mt48">
+            <div class="hidden-for-md-up text-center mt48">
                 <a href="#open-invite" class="button -add -big">Предложить лот</a>
             </div>
 
@@ -728,7 +834,9 @@
     </section>
 
     <footer class="footer">
-        <img src="/img/footer-logo.jpg" alt="">
+        <a href="#" class="scroll-to-top">
+            <img src="/img/footer_logo.png" alt="">
+        </a>
     </footer>
 
     <div class="-modal-contents">

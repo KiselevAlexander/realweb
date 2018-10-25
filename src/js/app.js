@@ -15,6 +15,7 @@ const MOBILE_BREAKPOINT = 768;
 const $HAMBURGER = $('.hamburger');
 const $MOUSEDOWN = $('.mouse-down');
 const $SCROLLTOTOP = $('.scroll-to-top');
+const $PRELOADER = $('.preloader');
 
 /**
  * Modals
@@ -293,4 +294,22 @@ if (WINDOW_WIDTH < MOBILE_BREAKPOINT) {
         }
     });
 
+    new Swiper ('.chronology-mobile .swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 0,
+        loop: false,
+        freeMode: true,
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        }
+    });
+
+
 }
+
+setTimeout(() => {
+    $PRELOADER.addClass('-loaded');
+    setTimeout(() => {
+        $PRELOADER.hide();
+    }, 400);
+}, 400);

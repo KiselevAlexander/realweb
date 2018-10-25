@@ -2,10 +2,15 @@
     position: relative;
     background-color: #000;
     color: #fff;
-    padding-bottom: $em70;
-    min-height: 100vh;
     @include flex;
+    padding-top: 4.375em;
+    padding-bottom: 4.375em;
+    margin-top: -2px;
 
+    @include media-breakpoint-down('sm') {
+        padding-top: 1em;
+        padding-bottom: 4em;
+    }
     
     h1 {
         text-align: left;
@@ -16,9 +21,100 @@
         img {
             width: 100%;
         }
+
+        @include media-breakpoint-down('sm') {
+            display: none;
+        }
     }
 
     .text-block {
         font-size: $em13;
+    }
+
+
+    .chronology-mobile {
+        margin-top: 4em;
+
+        @include media-breakpoint-up('md') {
+            display: none;
+        }
+
+        dl {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                bottom: 18px;
+                left: 11px;
+                z-index: 1;
+                display: block;
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: #fff;
+            }
+
+            dd {
+                font-size: $em12;
+                padding-right: 1em;
+            }
+
+            dt {
+                position: relative;
+                z-index: 2;
+                padding-bottom: 60px;
+                font-size: $em24;
+
+                &:before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    display: block;
+                    content: '';
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid #fff;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
+                &:after {
+                    position: absolute;
+                    bottom: 11px;
+                    left: 11px;
+                    display: block;
+                    content: '';
+                    width: 18px;
+                    height: 18px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .swiper-slide {
+            width: 47% !important;
+
+            &:last-child {
+                dl {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .swiper-container {
+            padding-bottom: 2em;
+        }
+
+        .swiper-scrollbar {
+            background-color: rgba(255, 255, 255, .5);
+
+            .swiper-scrollbar-drag {
+                background-color: rgba(255, 255, 255, .7);
+            }
+
+        }
+
     }
 }
