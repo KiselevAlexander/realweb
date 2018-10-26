@@ -54,11 +54,13 @@
     &-image {
         display: none;
         max-width: 26.875em;
-        margin-top: 53px;
+        margin: 0 auto;
+        margin-top: 3.313em;
 
         @include media-breakpoint-down('sm') {
             display: block;
             max-width: 90%;
+            margin-top: 2.313em;
         }
     }
 
@@ -72,7 +74,7 @@
 
         @include media-breakpoint-down('sm') {
             display: block;
-            font-size: 9vw;
+            font-size: 10vw;
             margin-top: .5em;
         }
     }
@@ -92,7 +94,7 @@
         transform: translateX(-50%);
         cursor: pointer;
 
-        @include media-breakpoint-down('sm') {
+        @media (max-width: 1600px) {
             position: relative;
             bottom: 0;
             margin-top: 3em;

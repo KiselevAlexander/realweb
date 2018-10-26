@@ -227,7 +227,7 @@ if (WINDOW_WIDTH > MOBILE_BREAKPOINT) {
         spaceBetween: 45,
         loop: true,
         centeredSlides: true,
-        // If we need pagination
+        autoHeight: false,
         pagination: {
             el: '.swiper-pagination',
         },

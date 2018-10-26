@@ -85,7 +85,10 @@
                     content: '';
                     width: 18px;
                     height: 18px;
-                    background-color: #fff;
+                    background-color: #a9819f;
+                    background-image: url('/img/circle-bg.png');
+                    background-repeat: repeat-y;
+                    background-size: 100% auto;
                     border-radius: 50%;
                 }
             }
@@ -93,6 +96,8 @@
 
         .swiper-slide {
             width: 47% !important;
+            align-self: flex-end;
+
 
             &:last-child {
                 dl {
