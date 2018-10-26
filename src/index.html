@@ -133,11 +133,16 @@
             <div class="row">
                 <div class="col-12">
                     <h1>16 ноября, Omega Rooftop</h1>
+                    <div class="welcome-screen-animated">
+                        <video src="/video/1008286402-sd.mp4" allow="autoplay; encrypted-media" autoplay muted loop />
+                    </div>
                     <img class="welcome-screen-image" src="/img/welcome-image-xx.jpg" alt="">
                     <div class="welcome-screen-company-name">
                         Лет риалвеб
                     </div>
-                    <p>Аукцион digital-раритетов</p>
+                    <div class="welcome-screen-description">
+                        <p>Аукцион digital-раритетов</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -879,7 +884,8 @@
                 </p>
 
                 <form>
-                    <input type="hidden" name="type" value="offer_lot">
+                    <input type="hidden" name="type" value="lot">
+                    <input type="hidden" name="success" value="Лот отправлен">
                     <div class="row mt16">
                         <div class="col-12 col-sm-6">
                             <div class="input-field">
@@ -948,7 +954,8 @@
                 </p>
 
                 <form>
-                    <input type="hidden" name="type" value="offer_lot">
+                    <input type="hidden" name="type" value="history">
+                    <input type="hidden" name="success" value="История отправлена">
                     <div class="row mt16">
                         <div class="col-12 col-sm-6">
                             <div class="input-field">
@@ -1000,7 +1007,8 @@
                 <h1>Написать нам</h1>
 
                 <form>
-                    <input type="hidden" name="type" value="offer_lot">
+                    <input type="hidden" name="type" value="feedback">
+                    <input type="hidden" name="success" value="Сообщение отправлено">
                     <div class="row mt16">
                         <div class="col-12 col-sm-6">
                             <div class="input-field">
