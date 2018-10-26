@@ -210,15 +210,19 @@ $(document).on('keydown', 'input', (e) => {
     const $input = $(e.target);
     $input.parent().removeClass('-error');
 });
+/**
+ * / Forms
+ */
 
 let WINDOW_WIDTH = window.innerWidth;
 
 
 if (WINDOW_WIDTH > MOBILE_BREAKPOINT) {
-    /**
-     * / Forms
-     */
+
     var mySwiper = new Swiper ('.swiper-container', {
+        autoplay: {
+            delay: 3000,
+        },
         slidesPerView: 5,
         spaceBetween: 45,
         loop: true,

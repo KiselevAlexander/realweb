@@ -18,7 +18,7 @@
             font-size: $em56;
             font-weight: bold;
             color: #000;
-            @include media-breakpoint-down('md') {
+            @include media-breakpoint-down('sm') {
                 display: none;
             }
         }
@@ -70,4 +70,43 @@
 
     }
 
+    &-rules {
+        font-size: $em13;
+        margin-top: 3em;
+
+        @include media-breakpoint-down('sm') {
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        &-header {
+            padding-right: 1em;
+            @include flex;
+            align-items: flex-end;
+
+            @include media-breakpoint-down('sm') {
+                align-items: center;
+            }
+
+            b {
+                text-transform: uppercase;
+                display: inline-block;
+                font-family: 'Roboto-slab';
+                margin-top: 2px;
+            }
+
+            img {
+                margin-top: 1em;
+                max-width: 80px;
+            }
+
+        }
+
+        &-block {
+
+            @include media-breakpoint-down('sm') {
+                margin-bottom: 1em;
+            }
+        }
+    }
 }
