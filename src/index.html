@@ -83,7 +83,15 @@
     </script>
 </head>
 <body>
-    <div class="preloader" style="position: fixed;top: 0;left: 0;bottom: 0;right: 0;background-color: #000;z-index: 9999;"></div>
+    <div class="preloader"
+         style="position: fixed;top: 0;left: 0;bottom: 0;right: 0;background-color: #000;z-index: 9999;display: flex;flex-direction: column;align-items: center;justify-content: center;"
+    >
+
+        <svg style="width: 100px;height: 100px;">
+            <use xlink:href="#spinner" />
+        </svg>
+
+    </div>
     <header class="main-menu">
         <div class="container">
             <div class="row">
@@ -99,7 +107,7 @@
 
                         <div class="main-menu-logo">
                             <a href="#" class="scroll-to-top">
-                                <img src="/img/logo.jpg" alt="RealWeb">
+                                <img src="/img/logo_header.svg" alt="RealWeb">
                             </a>
                         </div>
                     </div>
@@ -121,7 +129,7 @@
                         </ul>
                     </nav>
                     <div class="main-menu-invite-link">
-                        <a href="#open-invite">Получить приглашение</a>
+                        <a href="#open-feedback">Получить приглашение</a>
                     </div>
                 </div>
             </div>
@@ -308,7 +316,9 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 m-slider-item">
                         <div class="speaker">
                             <div class="speaker-image">
-                                <img class="speaker-image-photo" src="/img/speakers/1.png" alt="Артем Пуликов">
+                                <div class="speaker-image-photo">
+                                    <img src="/img/speakers/1.png" alt="Артем Пуликов">
+                                </div>
                             </div>
                             <div class="speaker-name">
                                 Артем Пуликов
@@ -320,7 +330,7 @@
                                 <div class="row">
                                     <div class="col-6 p-md-0 text-right">
                                         <button class="button -video -m-small open-video"
-                                                data-video="https://www.youtube.com/embed/gqaFbF8QRT0"
+                                                data-video="https://www.youtube.com/embed/LVu3OaZBfOc"
                                         >
                                             Смотреть видео
                                         </button>
@@ -337,7 +347,9 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 m-slider-item">
                         <div class="speaker">
                             <div class="speaker-image">
-                                <img class="speaker-image-photo" src="/img/speakers/2.png" alt="Арсен Ревазов">
+                                <div class="speaker-image-photo -cross-2">
+                                    <img src="/img/speakers/2.png" alt="Арсен Ревазов">
+                                </div>
                             </div>
                             <div class="speaker-name">
                                 Арсен Ревазов
@@ -349,7 +361,7 @@
                                 <div class="row">
                                     <div class="col-6 p-md-0 text-right">
                                         <button class="button -video -m-small open-video"
-                                                data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                                data-video="https://www.youtube.com/embed/LVu3OaZBfOc"
                                         >
                                             Смотреть видео
                                         </button>
@@ -366,7 +378,9 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 m-slider-item">
                         <div class="speaker">
                             <div class="speaker-image">
-                                <img class="speaker-image-photo" src="/img/speakers/3.png" alt="Василий Лазука">
+                                <div class="speaker-image-photo -cross-3">
+                                    <img src="/img/speakers/3.png" alt="Василий Лазука">
+                                </div>
                             </div>
                             <div class="speaker-name">
                                 Василий Лазука
@@ -378,7 +392,7 @@
                                 <div class="row">
                                     <div class="col-6 p-md-0 text-right">
                                         <button class="button -video -m-small open-video"
-                                                data-video="https://www.youtube.com/embed/gqaFbF8QRT0"
+                                                data-video="https://www.youtube.com/embed/LVu3OaZBfOc"
                                         >
                                             Смотреть видео
                                         </button>
@@ -395,7 +409,9 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 m-slider-item">
                         <div class="speaker">
                             <div class="speaker-image">
-                                <img class="speaker-image-photo" src="/img/speakers/4.png" alt="Виктория Кинаш">
+                                <div class="speaker-image-photo -cross-2">
+                                    <img src="/img/speakers/4.png" alt="Виктория Кинаш">
+                                </div>
                             </div>
                             <div class="speaker-name">
                                 Виктория Кинаш
@@ -407,7 +423,7 @@
                                 <div class="row">
                                     <div class="col-6 p-md-0 text-right">
                                         <button class="button -video open-video"
-                                                data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                                data-video="https://www.youtube.com/embed/LVu3OaZBfOc"
                                         >
                                             Смотреть видео
                                         </button>
@@ -424,7 +440,9 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 m-slider-item">
                         <div class="speaker">
                             <div class="speaker-image">
-                                <img class="speaker-image-photo" src="/img/speakers/5.png" alt="Илья Красильщик">
+                                <div class="speaker-image-photo -cross-3">
+                                    <img src="/img/speakers/5.png" alt="Илья Красильщик">
+                                </div>
                             </div>
                             <div class="speaker-name">
                                 Илья Красильщик
@@ -436,7 +454,7 @@
                                 <div class="row">
                                     <div class="col-6 p-md-0 text-right">
                                         <button class="button -video -m-small open-video"
-                                                data-video="https://www.youtube.com/embed/IXZ1dwft1Gw"
+                                                data-video="https://www.youtube.com/embed/LVu3OaZBfOc"
                                         >
                                             Смотреть видео
                                         </button>
@@ -782,21 +800,16 @@
                 </div>
                 <div class="col-12 col-md-5">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua.
+                        Мы начинаем встречать гостей с 19:00 – приветствия,
+                        объятия, селфи, welcome drinks и живая музыка.
+                        К розыгрышу первого лота мы приступим в 20:00, через
+                        час сделаем короткий музыкальный перерыв и вновь
+                        вернемся к аукциону.
                     </p>
                     <p>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                    <p>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                        qui officia deserunt mollit anim id est laborum.
+                        Как только все раритеты будут раскуплены, нас ждут
+                        фуршет, напитки, танцы, скупые ностальгические слезы
+                        и великолепный вид на ночную Москву.
                     </p>
                 </div>
                 <div class="program-cross"></div>
@@ -1081,8 +1094,14 @@
             </div>
         </div>
     </div>
+    <svg style="display: none">
+        <symbol id="spinner" viewBox="0 0 100 100" style="background: none;">
+            <path stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#f9f9f9" transform="rotate(318 50 51)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
+        </symbol>
+    </svg>
 
-    <script src="/js/vendor.bundle.js"></script>
-    <script src="/js/script.bundle.js"></script>
+
+    <script src="/js/vendor.bundle.js?v=1.0.1"></script>
+    <script src="/js/script.bundle.js?v=1.0.1"></script>
 </body>
 </html>

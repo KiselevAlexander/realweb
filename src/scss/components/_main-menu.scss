@@ -48,6 +48,11 @@ $hamburger-layer-spacing: 8px;
         a {
             height: 100%;
             @include flex;
+
+            img {
+                height: $em24;
+            }
+
         }
     }
 

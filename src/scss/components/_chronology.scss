@@ -18,6 +18,8 @@
     }
 
     &-image {
+        margin-bottom: -10%;
+
         img {
             width: 100%;
         }
@@ -28,7 +30,7 @@
     }
 
     .text-block {
-        font-size: $em13;
+        font-size: $em16;
     }
 
 

@@ -75,7 +75,11 @@ $('.open-video').click((e) => {
     e.preventDefault();
 
     const $VIDEO_MODAL = $('<div id="video"></div>');
-    $VIDEO_MODAL.append('<div class="video-player"></div>');
+    $VIDEO_MODAL.append('<div class="video-player">' +
+        '<svg style="width: 100px;height: 100px;">\n' +
+        '            <use xlink:href="#spinner"/>\n' +
+        '        </svg>' +
+        '</div>');
 
     const $this = $(e.target);
     const _videoLink = $this.data('video');
