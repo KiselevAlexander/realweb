@@ -45,7 +45,7 @@ var path = {
         pages: 'src/pages/*'
     },
     watch: {
-        html: 'src/**/*.html',
+        html: 'src/**/*.(html|htm)',
         assets: 'src/assets/**/*.*',
         js: 'src/js/**/*.js',
         style: ['src/scss/**/*.scss', '!src/scss/pages/*.scss'],

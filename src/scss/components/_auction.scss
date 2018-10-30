@@ -71,41 +71,75 @@
     }
 
     &-rules {
-        font-size: $em13;
-        margin-top: 3em;
+        position: relative;
 
-        @include media-breakpoint-down('sm') {
-            text-align: center;
-            margin-top: 1em;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            z-index: -1;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #000;
+            z-index: -1;
         }
 
-        &-header {
-            padding-right: 1em;
-            @include flex;
-            align-items: flex-end;
+        &:before,
+        &:after {
 
-            @include media-breakpoint-down('sm') {
-                align-items: center;
+            @include media-breakpoint-down('md') {
+                display: none;
             }
+        }
+        
+        &-block {
+            background-color: #000;
+            color: #fff;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            font-size: $rem14;
 
-            b {
-                text-transform: uppercase;
-                display: inline-block;
+            h4 {
                 font-family: 'Roboto-slab';
-                margin-top: 2px;
+                text-transform: uppercase;
+                font-size: $rem12;
+                font-weight: bold;
             }
+
+            @include media-breakpoint-down('md') {
+                text-align: center;
+
+                &:last-child {
+                    padding-top: 0;
+                    padding-bottom: 2.5rem;
+                }
+            }
+        }
+        
+        &-image {
+            position: relative;
+            margin-right: -2px;
 
             img {
-                margin-top: 1em;
-                max-width: 80px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: auto;
             }
 
-        }
-
-        &-block {
-
-            @include media-breakpoint-down('sm') {
-                margin-bottom: 1em;
+            @include media-breakpoint-down('md') {
+                display: none;
             }
         }
     }

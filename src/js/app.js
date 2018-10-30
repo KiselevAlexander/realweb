@@ -115,8 +115,6 @@ $('.open-lot').click((e) => {
     $LOT_MODAL.find('.lot-modal-name').html(lot.name);
     $LOT_MODAL.find('.lot-modal-description').html(lot.description);
     $LOT_MODAL.find('.lot-modal-text').html(lot.text);
-    console.log(lot);
-
     openModal($LOT_MODAL);
 });
 
@@ -299,7 +297,8 @@ if (WINDOW_WIDTH < MOBILE_BREAKPOINT) {
         centeredSlides: true,
         scrollbar: {
             el: '.swiper-scrollbar',
-        }
+        },
+        autoHeight: true
     });
 
     new Swiper ('.chronology-mobile .swiper-container', {
