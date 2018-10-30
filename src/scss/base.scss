@@ -58,6 +58,13 @@ h1 {
     }
 }
 
+.mb {
+
+    &32 {
+        margin-bottom: $em32;
+    }
+}
+
 .-hidden {
     display: none !important;
 }

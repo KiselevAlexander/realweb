@@ -92,6 +92,10 @@ $('.open-video').click((e) => {
     openModal($VIDEO_MODAL);
 });
 
+LOTS.forEach((item) => {
+    const $image = $(`<img src="${item.image}" style="position: absolute; left: -9999px; bottom: -9999px; height: 10px, width: 10px;">`);
+    $('body').append($image);
+});
 
 $('.open-lot').click((e) => {
     e.preventDefault();
