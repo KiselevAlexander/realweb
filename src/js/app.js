@@ -268,7 +268,7 @@ if (WINDOW_WIDTH > MOBILE_BREAKPOINT) {
     });
 } else {
     $('.partners .swiper-wrapper').removeClass('swiper-wrapper').addClass('row');
-    $('.partners .swiper-slide').removeClass('swiper-slide').addClass('col-6 partner');
+    $('.partners .swiper-slide').removeClass('swiper-slide').addClass('col-12 partner');
 }
 
 const CLASSES_MAP = {
