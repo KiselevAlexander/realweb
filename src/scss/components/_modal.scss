@@ -95,6 +95,28 @@
             font-size: $em13;
             padding: .5em 0;
         }
+
+        @include media-breakpoint-down('sm') {
+            form {
+
+            }
+        }
+    }
+
+    &-form {
+
+        @include media-breakpoint-down('sm') {
+            h1 {
+                text-align: center !important;
+            }
+
+            button {
+                display: inline-block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     }
 
     .tingle-modal-box {
@@ -116,6 +138,61 @@
             }
         }
 
+        &.-success,
+        &.-error {
+            max-width: 25em;
+
+            h1 {
+                font-family: 'Roboto-slab';
+                text-transform: uppercase;
+                font-size: $em12;
+                font-weight: bold;
+                letter-spacing: .01em;
+
+                &:before {
+                    display: block;
+                    content: '';
+                    width: 58px;
+                    height: 58px;
+                    background-image: url('/img/send_blk_btn.svg');
+                    background-size: cover;
+                    background-position: 50%;
+                    background-repeat: no-repeat;
+                    margin: 1em auto 1em auto;
+                }
+            }
+
+            p {
+                font-size: $em14;
+            }
+
+            @include media-breakpoint-down('sm') {
+                max-width: 100%;
+
+                .-modal-inner {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateY(-50%) translateX(-50%);
+                    width: 100%;
+                    max-width: 20em;
+                }
+            }
+
+            .tingle-modal-box__content {
+                padding: 0 3em;
+            }
+
+            .-modal-close.-footer {
+                display: none;
+            }
+        }
+
+        &.-error {
+            h1 {
+                color: #f00;
+            }
+        }
     }
 
 

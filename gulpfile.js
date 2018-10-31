@@ -32,7 +32,8 @@ var path = {
         pageStyle: PUBLIC_DIR + '/css/pages/',
         img: PUBLIC_DIR + '/img/',
         fonts: PUBLIC_DIR + '/fonts/',
-        pages: PUBLIC_DIR + '/pages/'
+        pages: PUBLIC_DIR + '/pages/',
+        php: PUBLIC_DIR + '/php/'
     },
     src: {
         html: 'src/**/*.html',
@@ -42,6 +43,7 @@ var path = {
         pageStyle: 'src/scss/pages/*.*',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
+        php: 'src/php/**/*.php',
         pages: 'src/pages/*'
     },
     watch: {
@@ -52,6 +54,7 @@ var path = {
         pageStyle: 'src/scss/pages/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
+        php: 'src/php/**/*.php',
         pages: 'src/pages/*.htm'
     },
     clean: './public'
@@ -255,6 +258,11 @@ gulp.task('fonts:build', function() {
         .pipe(gulp.dest(path.build.fonts))
 });
 
+gulp.task('php:build', function() {
+    gulp.src(path.src.php)
+        .pipe(gulp.dest(path.build.php))
+});
+
 gulp.task('build', [
     'html:build',
     'assets:build',
@@ -264,7 +272,8 @@ gulp.task('build', [
     'pageStyle',
     'fonts:build',
     'pages:build',
-    'image:build'
+    'image:build',
+    'php:build'
 ]);
 
 
@@ -296,6 +305,9 @@ gulp.task('watch', function(){
     });
     watch([path.watch.fonts], function(event, cb) {
         gulp.start('fonts:build');
+    });
+    watch([path.watch.php], function(event, cb) {
+        gulp.start('php:build');
     });
 });
 

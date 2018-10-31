@@ -1,11 +1,8 @@
 import $ from 'jquery';
 import tingle from "tingle.js"
 import Swiper from "../../node_modules/swiper"
-// var Swiper = require('swiper');
-// window.jQuery = window.$ = require("jquery");
-// require('../../node_modules/owl.carousel');
 
-const FORMS_URL_API = '/forms.php';
+const FORMS_URL_API = '/php/forms.php';
 
 const MENU_IS_ACTIVE_CLASS = '-active';
 
@@ -25,22 +22,17 @@ const MODAL = new tingle.modal({
     closeMethods: ['overlay', 'button', 'escape'],
     cssClass: ['-modal'],
     closeLabel: '',
-    onOpen: function() {
+    onOpen: () => {
         console.log('modal open');
     },
-    onClose: function() {
+    onClose: () => {
         $('.-modal-inner').html('');
         $('.-modal-inner').html('');
         $('.-modal-close.-footer').removeClass('-hidden');
-    },
-    beforeClose: function() {
-        // here's goes some logic
-        // e.g. save content before closing the modal
-        return true; // close the modal
-        return false; // nothing happens
     }
 });
 
+const $MODAL_BOX = $('.tingle-modal-box');
 const $MODAL_INNER = $('<div class="-modal-inner"></div>');
 const $MODAL_BOX_CONTENT = $('.tingle-modal-box__content');
 
@@ -50,6 +42,8 @@ $MODAL_BOX_CONTENT.append($('<button class="-modal-close -footer"></button>'));
 
 
 const openModal = (target) => {
+    $MODAL_BOX.removeClass('-success');
+    $MODAL_BOX.removeClass('-error');
     $MODAL_INNER.html(target.html());
     MODAL.open();
 };
@@ -183,32 +177,60 @@ $(document).on('submit', 'form', (e) => {
     const $fields = $form.find('input');
     const $buttons = $form.find('button');
     const _errors = [];
+    const data = {};
+    const EXCLUDE_FIELDS = ['success', 'successMsg'];
+    const _successHeader = $form.find('[name="success"]').val();
+    const _successMsg = $form.find('[name="successMsg"]').val();
 
     $fields.each((i, field) => {
         const $field = $(field);
         if ($field.data('required') && !$field.val()) {
             $field.parent().addClass('-error');
             _errors.push($field.attr('name'))
+        } else if (!EXCLUDE_FIELDS.includes($field.attr('name'))) {
+            data[$field.attr('name')] = $field.val();
         }
     });
 
+    const setErrorMessage = () => {
+        $MODAL_BOX.addClass('-error');
+        $MODAL_INNER.html(
+            `<div class="text-center"><h1 class="text-center">Ошибка отправки</h1><p>Попробуйте повторить запрос позднее</p></div>`
+        );
+    };
+
+    const setSuccessMessage = () => {
+        $MODAL_BOX.addClass('-success');
+        $MODAL_INNER.html(
+            `<div class="text-center"><h1 class="text-center">${_successHeader}</h1><p>${_successMsg}</p></div>`
+        );
+    };
+
     if (!_errors.length) {
-        $fields.attr('disabled', true);
-        $buttons.attr('disabled', true);
+
         $.ajax({
             url: FORMS_URL_API,
             type: 'post',
             dataType: 'json',
+            data,
             success: (data) => {
                 $fields.removeAttr('disabled');
                 $buttons.removeAttr('disabled');
-                console.log(data);
+                if (data.success) {
+                    setSuccessMessage();
+                } else {
+                    setErrorMessage();
+                }
             },
             error: () => {
                 $fields.removeAttr('disabled');
                 $buttons.removeAttr('disabled');
+                setErrorMessage();
             }
-        })
+        });
+
+        $fields.attr('disabled', true);
+        $buttons.attr('disabled', true);
     }
 });
 

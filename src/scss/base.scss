@@ -96,3 +96,13 @@ h1 {
     }
 
 }
+
+.gray-text {
+    color: $color-grey;
+    font-size: $em12;
+
+    @include media-breakpoint-down('sm') {
+        text-align: center;
+    }
+
+}
