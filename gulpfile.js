@@ -18,7 +18,8 @@ var gulp = require('gulp'),
     htmlInjector = require("bs-html-injector"),
     inline_image = require('gulp-base64-image'),
     fileinclude = require('gulp-file-include'),
-    rollup = require('gulp-rollup');
+    rollup = require('gulp-rollup'),
+    htmlmin = require('gulp-htmlmin');
 
 
 var PUBLIC_DIR = 'public';
@@ -84,8 +85,7 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('html:build', function () {
-    gulp.src(path.src.html)
-        .pipe(rigger()
+    gulp.src(path.src.html).pipe(rigger()
             .on("error", notify.onError(function (error) {
                 return "Error rigger: " + error.message;
             })))
@@ -99,6 +99,11 @@ gulp.task('html:build', function () {
             .on("error", notify.onError(function (error) {
                 return "Error: " + error.message;
             })))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true,
+            minifyJS: true
+        }))
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));
 });
