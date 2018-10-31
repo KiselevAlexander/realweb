@@ -22,13 +22,14 @@
         .swiper-button-prev,
         .swiper-button-next {
             position: absolute;
-            top: 22px;
+            top: 50%;
             background-image: url('/img/arrow.png') !important;
             background-repeat: no-repeat;
             background-size: cover;
             width: 19px;
             height: 30px;
             outline: 0;
+            transform: translateY(-30%);
 
             @include media-breakpoint-down('md') {
                 display: none;
@@ -41,7 +42,7 @@
 
         .swiper-button-next {
             right: 0;
-            transform: rotateZ(180deg);
+            transform: rotateZ(180deg) translateY(30%);
         }
 
         .swiper-scrollbar {

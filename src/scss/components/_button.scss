@@ -49,6 +49,22 @@
         }
     }
 
+    &[disabled] {
+        opacity: .5;
+
+        &:hover {
+            text-decoration: none;
+            color: #000;
+
+            &:before {
+                opacity: 1;
+            }
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+
     &.-add {
         &:before {
             background-image: url('/img/add_btn.svg');

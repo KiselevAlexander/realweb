@@ -96,17 +96,14 @@
             padding: .5em 0;
         }
 
-        @include media-breakpoint-down('sm') {
-            form {
-
-            }
-        }
     }
 
     &-form {
         padding: 1em 1em 1em 3em;
 
         @include media-breakpoint-down('sm') {
+            padding: 0 1em;
+
             h1 {
                 text-align: center !important;
             }
