@@ -9,20 +9,6 @@
     .lot {
         margin: $em36 0;
 
-        &:before {
-            display: block;
-            counter-increment: section;
-            content:  counter(section, decimal-leading-zero);
-            text-align: center;
-            font-family: 'Roboto-slab-bold', Roboto, sans-serif;
-            font-size: $em56;
-            font-weight: bold;
-            color: #000;
-            @include media-breakpoint-down('sm') {
-                display: none;
-            }
-        }
-
         &-image {
             text-align: center;
 
@@ -57,9 +43,9 @@
                 font-weight: bold;
                 color: #000;
 
-                @include media-breakpoint-up('md') {
-                    display: none;
-                }
+                //@include media-breakpoint-up('md') {
+                //    display: none;
+                //}
 
             }
 
@@ -128,6 +114,14 @@
                 &:last-child {
                     padding-top: 0;
                     padding-bottom: 2.5rem;
+                }
+            }
+
+            @media (max-width: 1366px) {
+                font-size: $em14;
+
+                h4 {
+                    font-size: $em14;
                 }
             }
         }
