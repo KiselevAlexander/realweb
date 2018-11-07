@@ -81,6 +81,7 @@
 
     &-inner {
         padding: 2em 2em 2em 0;
+        user-select: none;
 
         @include media-breakpoint-down('sm') {
             padding: 0 1em;
