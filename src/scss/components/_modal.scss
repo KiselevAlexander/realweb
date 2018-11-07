@@ -204,12 +204,11 @@
     }
 
     .video-player {
-        margin-top: -1em;
-        margin-bottom: -1em;
         height: 480px;
         background-color: #000;
         @include flex;
         align-items: center;
+        margin: -1em -1em -1em 1em;
 
         iframe {
             width: 100%;
