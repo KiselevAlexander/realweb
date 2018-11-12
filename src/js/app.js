@@ -3,9 +3,7 @@ import tingle from "tingle.js"
 import Swiper from "../../node_modules/swiper"
 
 const FORMS_URL_API = '/php/forms.php';
-
 const MENU_IS_ACTIVE_CLASS = '-active';
-
 const $MENU = $('.main-menu');
 const MENU_HEIGHT = 56;
 const MOBILE_BREAKPOINT = 768;
@@ -171,6 +169,29 @@ $MENU.find('.scroll-to-top, a').click((e) => {
  * Forms
  */
 
+const reachGoal = (goal) => {
+      switch (goal) {
+          case 'feedback':
+              console.log(goal);
+              if (dataLayer) {
+                  dataLayer.push(
+                      { event:"UA gtm events", eventCategory:"Letter", eventAction:"SendForm" }
+                  );
+              }
+              break;
+          case 'history':
+              console.log(goal);
+              if (dataLayer) {
+                  dataLayer.push(
+                      { event:"UA gtm events", eventCategory:"Story", eventAction:"SendForm" }
+                  );
+              }
+              break;
+          default:
+              break;
+      }
+};
+
 $(document).on('submit', 'form', (e) => {
     e.preventDefault();
     const $form = $(e.target);
@@ -181,6 +202,7 @@ $(document).on('submit', 'form', (e) => {
     const EXCLUDE_FIELDS = ['success', 'successMsg'];
     const _successHeader = $form.find('[name="success"]').val();
     const _successMsg = $form.find('[name="successMsg"]').val();
+    const _formType = $form.find('[name="type"]').val();
 
     $fields.each((i, field) => {
         const $field = $(field);
@@ -218,6 +240,7 @@ $(document).on('submit', 'form', (e) => {
                 $buttons.removeAttr('disabled');
                 if (data.success) {
                     setSuccessMessage();
+                    reachGoal(_formType);
                 } else {
                     setErrorMessage();
                 }
