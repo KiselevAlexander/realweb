@@ -23,7 +23,7 @@ $FIELDS = [
     'message' => 'Сообщение'
 ];
 
-$to = 'xxyearsrealweb@gmail.com, dyx624@gmail.com';
+$to = 'xxyearsrealweb@gmail.com';
 
 $subject = (array_key_exists('type', $data) && array_key_exists($data['type'], $FORMS))
     ? $FORMS[$data['type']]
